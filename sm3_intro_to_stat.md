@@ -45,10 +45,14 @@ functions from the tidyverse conflict with functions in base R (or from
 other packages you might have loaded).
 
 We’ll also load a package that will help with providing you feedback on
-the exercises.
+the exercises (`testthat`), and a package for easily adjusting axes tick
+labels in ggplot (`scales`). If you don’t have these packages, first
+install them with `install.packages("testthat")` or
+`install.packages("scales")`).
 
 ``` r
 suppressPackageStartupMessages(library(testthat))
+suppressPackageStartupMessages(library(scales))
 ```
 
 ## New functions used
