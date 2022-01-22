@@ -39,8 +39,8 @@ suppressPackageStartupMessages(library(scales))
 * **base::seq()** - Generate sequence of numbers given some pattern. 
 * **tibble::tibble()** - Constructs a tibble (a matrix-like data frame object / table) given data. 
 * **base::matrix()** - Constructs a matrix from a vector by specifying numbers of rows/columns
-* **stats::pnorm()** - Probability density function for the normal distribution. 
-* **stats::dnorm()** - Cumulative distribution function for the normal distribution. 
+* **stats::pnorm()** - Cumulative distribution function for the normal distribution. 
+* **stats::dnorm()** - Probability density function for the normal distribution. 
 * **stats::rnorm()** - Random number generator for sampling values from the normal distribution. 
 * **stats::dchisq()** - Cumulative distribution function for the chi-square distribution. 
 * **stats::rchisq()** - Random number generator for sampling values from the chi-square distribution. 
