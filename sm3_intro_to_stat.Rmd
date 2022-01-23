@@ -36,22 +36,23 @@ suppressPackageStartupMessages(library(scales))
 
 ## New functions used
 
-* **base::seq()** - Generate sequence of numbers given some pattern. 
-* **tibble::tibble()** - Constructs a tibble (a matrix-like data frame object / table) given data. 
-* **base::matrix()** - Constructs a matrix from a vector by specifying numbers of rows/columns
-* **stats::pnorm()** - Cumulative distribution function for the normal distribution. 
-* **stats::dnorm()** - Probability density function for the normal distribution. 
-* **stats::rnorm()** - Random number generator for sampling values from the normal distribution. 
-* **stats::dchisq()** - Cumulative distribution function for the chi-square distribution. 
-* **stats::rchisq()** - Random number generator for sampling values from the chi-square distribution. 
-* **ggplot2::geom_line()** - Geom function for drawing lines. 
+* **`base::seq()`** - Generate sequence of numbers given some pattern. 
+* **`tibble::tibble()`** - Constructs a tibble (a matrix-like data frame object / table) given data. 
+* **`base::matrix()`** - Constructs a matrix from a vector by specifying numbers of rows/columns
+* **`stats::pnorm()`** - Cumulative distribution function for the normal distribution. 
+* **`stats::dnorm()`** - Probability density function for the normal distribution. 
+* **`stats::rnorm()`** - Random number generator for sampling values from the normal distribution. 
+* **`stats::dbinom()`** - Probability mass function for the binomial distribution. 
+* **`stats::dchisq()`** - Cumulative distribution function for the chi-square distribution. 
+* **`stats::rchisq()`** - Random number generator for sampling values from the chi-square distribution. 
+* **`ggplot2::geom_line()`** - Geom function for drawing lines. 
 
 ## Statistical concepts and terminology
 
-* **Probability distribution** - Describes the probabilities of all possible values in a given scenario.
+* **Probability density function** - A function mapping all the possible values of a continuous random variable to their relative likelihood.
+* **Probability mass function** - Describes the probabilities of all possible values of a discrete random variable.
 * **Mean** - One of two parameters used to describe a normal distribution; it is the average value, and also the value with the highest probability.
 * **Standard deviation** -  One of two parameters used to describe a normal distribution; it describes the spread of the data. 
-* **Probability density function** - Maps the values x (possible heights in our example) to its associated probability described by a given distribution.
 * **Cumulative distribution function** - Describes the cumulative probability of all values smaller than x; x starts a 0 and goes up to 1. 
 * **Central limit theorem (CLT)** - States that the distribution of the sum or means of random samples generated independently (IID) by any distribution will converge to the normal distribution.
 * **Independent and identically distributed (IID)** - Each random value is sampled with replacement from the same distribution.  
@@ -370,14 +371,14 @@ ggplot(dat) +
 
 ## Important takeaway
 
-Every distribution in R comes with three different functions, p-function, d-function, and r-function. The p-function is the probability density function, the d-function is the cumulative distribution function, and r-function is the random number generator that can be used to sample IID values from the given distribution. 
+Every distribution in R comes with three different functions, d-function, p-function, and r-function. The d-function is the probability density function, the p-function is the cumulative distribution function, and r-function is the random number generator that can be used to sample IID values from the given distribution. 
 
-For the normal distribution, the three functions correspond to `pnorm()`, `dnorm()`, and `rnorm()`. We have used all three for the normal distribution in this seminar. We have also discussed corresponding functions for the chi-square distribution, the uniform distribution, and the binomial distribution. When you get a chance, feel free to explore these functions for different distributions for yourself. 
+For the normal distribution, the three functions correspond to `dnorm()`, `pnorm()`, and `rnorm()`. We have used all three for the normal distribution in this seminar. We have also discussed corresponding functions for the chi-square distribution, the uniform distribution, and the binomial distribution. When you get a chance, feel free to explore these functions for different distributions for yourself. 
 
 
 # Part 3: Deliverable
 
-* How well does the CLT hold for smaller sample sizes? Try it with sample sizes of n = 5, keep the number of samples the same at 1000. Make a smoothed density plot of the 1000 means, and describe how the results compare to the previous results with samples of size n = 100. 
+How well does the CLT hold for smaller sample sizes? Try it with sample sizes of n = 5, keep the number of samples the same at 1000. Make a smoothed density plot of the 1000 means, and describe how the results compare to the previous results with samples of size n = 100. 
 
 ```{r}
 # YOUR CODE HERE

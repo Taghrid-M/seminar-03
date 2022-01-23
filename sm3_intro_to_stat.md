@@ -29,16 +29,14 @@ materials).
 library(tidyverse)
 ```
 
-    ## Warning: package 'tidyverse' was built under R version 4.0.5
+    ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
 
-    ## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+    ## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+    ## ✓ tibble  3.1.6     ✓ dplyr   1.0.7
+    ## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
+    ## ✓ readr   2.1.1     ✓ forcats 0.5.1
 
-    ## v ggplot2 3.3.3     v purrr   0.3.4
-    ## v tibble  3.1.0     v dplyr   1.0.5
-    ## v tidyr   1.1.3     v stringr 1.4.0
-    ## v readr   1.4.0     v forcats 0.5.1
-
-    ## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
     ## x dplyr::filter() masks stats::filter()
     ## x dplyr::lag()    masks stats::lag()
 
@@ -54,45 +52,42 @@ install them with `install.packages("testthat")` or
 
 ``` r
 suppressPackageStartupMessages(library(testthat))
-```
-
-    ## Warning: package 'testthat' was built under R version 4.0.5
-
-``` r
 suppressPackageStartupMessages(library(scales))
 ```
 
 ## New functions used
 
--   **base::seq()** - Generate sequence of numbers given some pattern.
--   **tibble::tibble()** - Constructs a tibble (a matrix-like data frame
-    object / table) given data.
--   **base::matrix()** - Constructs a matrix from a vector by specifying
-    numbers of rows/columns
--   **stats::pnorm()** - Cumulative distribution function for the normal
+-   **`base::seq()`** - Generate sequence of numbers given some pattern.
+-   **`tibble::tibble()`** - Constructs a tibble (a matrix-like data
+    frame object / table) given data.
+-   **`base::matrix()`** - Constructs a matrix from a vector by
+    specifying numbers of rows/columns
+-   **`stats::pnorm()`** - Cumulative distribution function for the
+    normal distribution.
+-   **`stats::dnorm()`** - Probability density function for the normal
     distribution.
--   **stats::dnorm()** - Probability density function for the normal
-    distribution.
--   **stats::rnorm()** - Random number generator for sampling values
+-   **`stats::rnorm()`** - Random number generator for sampling values
     from the normal distribution.
--   **stats::dchisq()** - Cumulative distribution function for the
+-   **`stats::dbinom()`** - Probability mass function for the binomial
+    distribution.
+-   **`stats::dchisq()`** - Cumulative distribution function for the
     chi-square distribution.
--   **stats::rchisq()** - Random number generator for sampling values
+-   **`stats::rchisq()`** - Random number generator for sampling values
     from the chi-square distribution.
--   **ggplot2::geom\_line()** - Geom function for drawing lines.
+-   **`ggplot2::geom_line()`** - Geom function for drawing lines.
 
 ## Statistical concepts and terminology
 
--   **Probability distribution** - Describes the probabilities of all
-    possible values in a given scenario.
+-   **Probability density function** - A function mapping all the
+    possible values of a continuous random variable to their relative
+    likelihood.
+-   **Probability mass function** - Describes the probabilities of all
+    possible values of a discrete random variable.
 -   **Mean** - One of two parameters used to describe a normal
     distribution; it is the average value, and also the value with the
     highest probability.
 -   **Standard deviation** - One of two parameters used to describe a
     normal distribution; it describes the spread of the data.
--   **Probability density function** - Maps the values x (possible
-    heights in our example) to its associated probability described by a
-    given distribution.
 -   **Cumulative distribution function** - Describes the cumulative
     probability of all values smaller than x; x starts a 0 and goes up
     to 1.
@@ -125,8 +120,8 @@ used features of R.
 A probability distribution describes the probabilities of all possible
 values in a given scenario. For example, if you randomly select a person
 from the UBC student database, what is the probability that this
-person’s height is &gt;150cm? &lt;200cm? somewhere in between? These are
-the types of questions that a probability distribution can help answer.
+person’s height is \>150cm? \<200cm? somewhere in between? These are the
+types of questions that a probability distribution can help answer.
 
 The *mean* and the *standard deviation* are the two parameters used to
 describe a normal distribution. Respectively, these two numbers describe
@@ -295,7 +290,7 @@ test_that("Probability Calculation with PM:",
           expect_known_hash(prob, "e674f477275ebe3bc0f0ee9228194518"))
 ```
 
-    ## -- Failure (???): Probability Calculation with PM: -----------------------------
+    ## ── Failure (???): Probability Calculation with PM: ─────────────────────────────
     ## Value hashes to 917adccf7b1791212ddff570523f2736, not e674f477275ebe3bc0f0ee9228194518
 
     ## Error: Test failed
@@ -352,8 +347,8 @@ data frame (observations in rows, features in columns), and is a core
 type of object of the tidyverse.
 
 If we want to find the probability that a standard normal random
-variable *x* is less than -1 *P*(*X* &lt;  − 1), we can use the
-`pnorm()` function:
+variable *x* is less than -1 *P*(*X*\<−1), we can use the `pnorm()`
+function:
 
 ``` r
 pnorm(-1)
@@ -364,7 +359,7 @@ pnorm(-1)
 **Exercise**: take a minute to calculate the probability that a normal
 random variable *x* with mean 0.5 is *greater* than 1. (Hint:
 Probability distributions have a total area of 1 and are symmetric about
-the mean, i.e. *P*(*X* &gt;  − 1) = 1 − *P*(*X* &lt;  − 1) )
+the mean, i.e. *P*(*X*\>−1) = 1 − *P*(*X*\<−1) )
 
 ``` r
 # your code here 
@@ -380,7 +375,7 @@ test_that("Probability Calculation with CDF",
           expect_known_hash(prob, "78dcd0f9535233065cb718a9938312dd"))
 ```
 
-    ## -- Failure (???): Probability Calculation with CDF -----------------------------
+    ## ── Failure (???): Probability Calculation with CDF ─────────────────────────────
     ## Value hashes to 917adccf7b1791212ddff570523f2736, not 78dcd0f9535233065cb718a9938312dd
 
     ## Error: Test failed
@@ -558,13 +553,13 @@ distribution converges to the normal distribution. How amazing is that?!
 ## Important takeaway
 
 Every distribution in R comes with three different functions,
-p-function, d-function, and r-function. The p-function is the
-probability density function, the d-function is the cumulative
+d-function, p-function, and r-function. The d-function is the
+probability density function, the p-function is the cumulative
 distribution function, and r-function is the random number generator
 that can be used to sample IID values from the given distribution.
 
 For the normal distribution, the three functions correspond to
-`pnorm()`, `dnorm()`, and `rnorm()`. We have used all three for the
+`dnorm()`, `pnorm()`, and `rnorm()`. We have used all three for the
 normal distribution in this seminar. We have also discussed
 corresponding functions for the chi-square distribution, the uniform
 distribution, and the binomial distribution. When you get a chance, feel
@@ -573,11 +568,10 @@ yourself.
 
 # Part 3: Deliverable
 
--   How well does the CLT hold for smaller sample sizes? Try it with
-    sample sizes of n = 5, keep the number of samples the same at 1000.
-    Make a smoothed density plot of the 1000 means, and describe how the
-    results compare to the previous results with samples of size n
-    = 100.
+How well does the CLT hold for smaller sample sizes? Try it with sample
+sizes of n = 5, keep the number of samples the same at 1000. Make a
+smoothed density plot of the 1000 means, and describe how the results
+compare to the previous results with samples of size n = 100.
 
 ``` r
 # YOUR CODE HERE
