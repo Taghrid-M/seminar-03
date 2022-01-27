@@ -178,8 +178,10 @@ prob <- "FILL_THIS_IN"
 This next code chunk will test whether you have correctly calculated `prob` in the previous chunk. The answer is hidden as an encrypted hash, but the function will return `Test passed`.
 
 ```{r, error = TRUE}
-test_that("Probability Calculation with PM:", 
-          expect_known_hash(prob, "e674f477275ebe3bc0f0ee9228194518"))
+test_that("Probability Calculation with PM:", {
+          local_edition(2)
+          expect_known_hash(prob, "e674f477275ebe3bc0f0ee9228194518")
+})
 ```
 
 ### The Cumulative Distribution Function (CDF)
@@ -236,8 +238,10 @@ prob <- "FILL_THIS_IN"
 This next code chunk will test whether you have correctly calculated `prob` in the previous chunk. The answer is hidden as an encrypted hash, but the function will return `Test passed`.
 
 ```{r, error = TRUE}
-test_that("Probability Calculation with CDF", 
-          expect_known_hash(prob, "78dcd0f9535233065cb718a9938312dd"))
+test_that("Probability Calculation with CDF", {
+          local_edition(2)
+          expect_known_hash(prob, "78dcd0f9535233065cb718a9938312dd")
+})
 ```
 
 ### Simulation vs. perfect distribution

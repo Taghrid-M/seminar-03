@@ -286,11 +286,13 @@ This next code chunk will test whether you have correctly calculated
 but the function will return `Test passed`.
 
 ``` r
-test_that("Probability Calculation with PM:", 
-          expect_known_hash(prob, "e674f477275ebe3bc0f0ee9228194518"))
+test_that("Probability Calculation with PM:", {
+          local_edition(2)
+          expect_known_hash(prob, "e674f477275ebe3bc0f0ee9228194518")
+})
 ```
 
-    ## ── Failure (???): Probability Calculation with PM: ─────────────────────────────
+    ## ── Failure (<text>:3:11): Probability Calculation with PM: ─────────────────────
     ## Value hashes to 917adccf7b1791212ddff570523f2736, not e674f477275ebe3bc0f0ee9228194518
 
     ## Error: Test failed
@@ -371,11 +373,13 @@ This next code chunk will test whether you have correctly calculated
 but the function will return `Test passed`.
 
 ``` r
-test_that("Probability Calculation with CDF", 
-          expect_known_hash(prob, "78dcd0f9535233065cb718a9938312dd"))
+test_that("Probability Calculation with CDF", {
+          local_edition(2)
+          expect_known_hash(prob, "78dcd0f9535233065cb718a9938312dd")
+})
 ```
 
-    ## ── Failure (???): Probability Calculation with CDF ─────────────────────────────
+    ## ── Failure (<text>:3:11): Probability Calculation with CDF ─────────────────────
     ## Value hashes to 917adccf7b1791212ddff570523f2736, not 78dcd0f9535233065cb718a9938312dd
 
     ## Error: Test failed
