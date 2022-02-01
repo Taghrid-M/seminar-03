@@ -350,7 +350,7 @@ Ok, now let's separate all these values into 1000 samples, and then work out the
 
 ```{r}
 
-# organize the random values into 1000 sample rows of size n = 5 columns
+# organize the random values into 1000 sample rows of size n = 100 columns
 samples <- matrix(randomChiSqValues, nrow = numSamples, ncol = sampleSize)
 
 sampleMeans <- rowMeans(samples) # work out the sample means 
