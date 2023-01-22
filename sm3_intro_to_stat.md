@@ -10,13 +10,13 @@ Keegan Korthauer.
 
 By the end of this seminar, you should
 
--   have a clear understanding of what a normal distribution, its
-    associated parameters (mean & standard deviation), as well as the
-    consequential probability density and cumulative distribution
-    functions
--   have a clear understanding of the Central Limit Theorem (CLT)
--   have practical experience exploring the aforementioned concepts in
-    statistics by simulating data and building visualizations
+- have a clear understanding of what a normal distribution, its
+  associated parameters (mean & standard deviation), as well as the
+  consequential probability density and cumulative distribution
+  functions
+- have a clear understanding of the Central Limit Theorem (CLT)
+- have practical experience exploring the aforementioned concepts in
+  statistics by simulating data and building visualizations
 
 ## Packages required
 
@@ -29,14 +29,20 @@ materials).
 library(tidyverse)
 ```
 
-    ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+    ## Warning: package 'tidyverse' was built under R version 4.0.5
 
-    ## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-    ## ✓ tibble  3.1.6     ✓ dplyr   1.0.7
-    ## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
-    ## ✓ readr   2.1.1     ✓ forcats 0.5.1
+    ## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
 
-    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+    ## v ggplot2 3.3.6      v purrr   0.3.4 
+    ## v tibble  3.1.8      v dplyr   1.0.10
+    ## v tidyr   1.2.0      v stringr 1.4.0 
+    ## v readr   2.1.2      v forcats 0.5.1
+
+    ## Warning: package 'tidyr' was built under R version 4.0.5
+
+    ## Warning: package 'readr' was built under R version 4.0.5
+
+    ## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
     ## x dplyr::filter() masks stats::filter()
     ## x dplyr::lag()    masks stats::lag()
 
@@ -52,50 +58,54 @@ install them with `install.packages("testthat")` or
 
 ``` r
 suppressPackageStartupMessages(library(testthat))
+```
+
+    ## Warning: package 'testthat' was built under R version 4.0.5
+
+``` r
 suppressPackageStartupMessages(library(scales))
 ```
 
 ## New functions used
 
--   **`base::seq()`** - Generate sequence of numbers given some pattern.
--   **`tibble::tibble()`** - Constructs a tibble (a matrix-like data
-    frame object / table) given data.
--   **`base::matrix()`** - Constructs a matrix from a vector by
-    specifying numbers of rows/columns
--   **`stats::pnorm()`** - Cumulative distribution function for the
-    normal distribution.
--   **`stats::dnorm()`** - Probability density function for the normal
-    distribution.
--   **`stats::rnorm()`** - Random number generator for sampling values
-    from the normal distribution.
--   **`stats::dbinom()`** - Probability mass function for the binomial
-    distribution.
--   **`stats::dchisq()`** - Cumulative distribution function for the
-    chi-square distribution.
--   **`stats::rchisq()`** - Random number generator for sampling values
-    from the chi-square distribution.
--   **`ggplot2::geom_line()`** - Geom function for drawing lines.
+- **`base::seq()`** - Generate sequence of numbers given some pattern.
+- **`tibble::tibble()`** - Constructs a tibble (a matrix-like data frame
+  object / table) given data.
+- **`base::matrix()`** - Constructs a matrix from a vector by specifying
+  numbers of rows/columns
+- **`stats::pnorm()`** - Cumulative distribution function for the normal
+  distribution.
+- **`stats::dnorm()`** - Probability density function for the normal
+  distribution.
+- **`stats::rnorm()`** - Random number generator for sampling values
+  from the normal distribution.
+- **`stats::dbinom()`** - Probability mass function for the binomial
+  distribution.
+- **`stats::dchisq()`** - Cumulative distribution function for the
+  chi-square distribution.
+- **`stats::rchisq()`** - Random number generator for sampling values
+  from the chi-square distribution.
+- **`ggplot2::geom_line()`** - Geom function for drawing lines.
 
 ## Statistical concepts and terminology
 
--   **Probability density function** - A function mapping all the
-    possible values of a continuous random variable to their relative
-    likelihood.
--   **Probability mass function** - Describes the probabilities of all
-    possible values of a discrete random variable.
--   **Mean** - One of two parameters used to describe a normal
-    distribution; it is the average value, and also the value with the
-    highest probability.
--   **Standard deviation** - One of two parameters used to describe a
-    normal distribution; it describes the spread of the data.
--   **Cumulative distribution function** - Describes the cumulative
-    probability of all values smaller than x; x starts a 0 and goes up
-    to 1.
--   **Central limit theorem (CLT)** - States that the distribution of
-    the sum or means of random samples generated independently (IID) by
-    any distribution will converge to the normal distribution.
--   **Independent and identically distributed (IID)** - Each random
-    value is sampled with replacement from the same distribution.
+- **Probability density function** - A function mapping all the possible
+  values of a continuous random variable to their relative likelihood.
+- **Probability mass function** - Describes the probabilities of all
+  possible values of a discrete random variable.
+- **Mean** - One of two parameters used to describe a normal
+  distribution; it is the average value, and also the value with the
+  highest probability.
+- **Standard deviation** - One of two parameters used to describe a
+  normal distribution; it describes the spread of the data.
+- **Cumulative distribution function** - Describes the cumulative
+  probability of all values smaller than x; x starts a 0 and goes up to
+  1.
+- **Central limit theorem (CLT)** - States that the distribution of the
+  sum or means of random samples generated independently (IID) by any
+  distribution will converge to the normal distribution.
+- **Independent and identically distributed (IID)** - Each random value
+  is sampled with replacement from the same distribution.
 
 ## Part 1: The normal distribution
 
@@ -165,7 +175,7 @@ ggplot(dat) +
 ### The probability density function
 
 These plots are visualizations of the normal distribution’s probability
-density function. It is a function that maps the values *x* (possible
+density function. It is a function that maps the values $x$ (possible
 heights in our example) to its associated probability described by the
 distribution. In general, you can see that the probability decreases as
 values deviate from the mean; in the normal distribution, the mean value
@@ -175,11 +185,9 @@ probability density. Because there are infinite values that the height
 variable could assume, the probability of height taking on any one exact
 specific value is zero. For this reason, we speak in ranges of values.
 
-So in the chart above, we can see that the probability of a person we
-pick at from the red curve at random having a height greater than 150 cm
-is less than that same probability for a person picked at random from
-the blue curve. To obtain the probability values, we would integrate
-under the curves the area to the right of 150 cm.
+    QUIZ!
+
+    Which of the above the above two distributions have a higher likelihood of you picking a person taller than 150 cm? why is that?
 
 Here are a few more probability density plots for the normal
 distribution with different means and standard deviations. We recommend
@@ -235,10 +243,10 @@ As an example, let’s look at the probability mass function for the
 binomial distribution. A binomial random variable counts how often a
 particular event occurs in a fixed number of trials. The binomial
 distribution is a discrete distribution that is characterized by two
-parameters: *n* (the number of trials) and *p* (the probability that the
+parameters: $n$ (the number of trials) and $p$ (the probability that the
 event occurs). As an example, you can think of the distribution of the
 number of heads in 10 coin tosses as a binomial random variable with
-*n* = 10 and *p* = 0.5. The `dbinom()` function here helps us find the
+$n = 10$ and $p = 0.5$. The `dbinom()` function here helps us find the
 probability of 6 heads.
 
 ``` r
@@ -292,20 +300,21 @@ test_that("Probability Calculation with PM:", {
 })
 ```
 
-    ## ── Failure (<text>:3:11): Probability Calculation with PM: ─────────────────────
+    ## -- Failure (<text>:3:11): Probability Calculation with PM: ---------------------
     ## Value hashes to 917adccf7b1791212ddff570523f2736, not e674f477275ebe3bc0f0ee9228194518
 
-    ## Error: Test failed
+    ## Error in `reporter$stop_if_needed()`:
+    ## ! Test failed
 
 ### The Cumulative Distribution Function (CDF)
 
 The cumulative distribution function is an alternative way of describing
 the distribution. We will not go into a lot of details on how it can be
 used. Just briefly, it describes the cumulative probability of all
-values smaller than *x*. This is why it starts at 0 and goes up to 1, as
-the probability of all values smaller than *x* grows with *x*. The slope
-corresponds to the spread. Lower standard deviations would correspond to
-more rapid growth in the CDF.
+values smaller than $x$. This is why it starts at 0 and goes up to 1, as
+the probability of all values smaller than $x$ grows with $x$. The slope
+corresponds to the spread. **Lower standard deviations would correspond
+to more rapid growth in the CDF**.
 
 Note that the values of CDF for the normal distribution can also be very
 easily generated in R using the `pnorm()` function. Similarly, this
@@ -349,7 +358,7 @@ data frame (observations in rows, features in columns), and is a core
 type of object of the tidyverse.
 
 If we want to find the probability that a standard normal random
-variable *x* is less than -1 *P*(*X*\<−1), we can use the `pnorm()`
+variable $x$ is less than -1 $P(X < -1)$, we can use the `pnorm()`
 function:
 
 ``` r
@@ -359,9 +368,9 @@ pnorm(-1)
     ## [1] 0.1586553
 
 **Exercise**: take a minute to calculate the probability that a normal
-random variable *x* with mean 0.5 is *greater* than 1. (Hint:
+random variable $x$ with mean 0.5 is *greater* than 1. (Hint:
 Probability distributions have a total area of 1 and are symmetric about
-the mean, i.e. *P*(*X*\>−1) = 1 − *P*(*X*\<−1) )
+the mean, i.e. $P(X > -1) = 1 - P(X < -1)$ )
 
 ``` r
 # your code here 
@@ -379,10 +388,11 @@ test_that("Probability Calculation with CDF", {
 })
 ```
 
-    ## ── Failure (<text>:3:11): Probability Calculation with CDF ─────────────────────
+    ## -- Failure (<text>:3:11): Probability Calculation with CDF ---------------------
     ## Value hashes to 917adccf7b1791212ddff570523f2736, not 78dcd0f9535233065cb718a9938312dd
 
-    ## Error: Test failed
+    ## Error in `reporter$stop_if_needed()`:
+    ## ! Test failed
 
 ### Simulation vs. perfect distribution
 
@@ -529,7 +539,7 @@ Ok, now let’s separate all these values into 1000 samples, and then work
 out the sample means and look at the distribution of that.
 
 ``` r
-# organize the random values into 1000 sample rows of size n = 5 columns
+# organize the random values into 1000 sample rows of size n = 100 columns
 samples <- matrix(randomChiSqValues, nrow = numSamples, ncol = sampleSize)
 
 sampleMeans <- rowMeans(samples) # work out the sample means 

@@ -101,7 +101,12 @@ ggplot(dat) +
 
 These plots are visualizations of the normal distribution's probability density function. It is a function that maps the values $x$ (possible heights in our example) to its associated probability described by the distribution. In general, you can see that the probability decreases as values deviate from the mean; in the normal distribution, the mean value has the highest probability and the probability density function is symmetrical. The normal distribution is an example of a **continuous** probability density. Because there are infinite values that the height variable could assume, the probability of height taking on any one exact specific value is zero. For this reason, we speak in ranges of values. 
 
-So in the chart above, we can see that the probability of a person we pick at from the red curve at random having a height greater than 150 cm is less than that same probability for a person picked at random from the blue curve. To obtain the probability values, we would integrate under the curves the area to the right of 150 cm. 
+```
+QUIZ!
+
+Which of the above the above two distributions have a higher likelihood of you picking a person taller than 150 cm? why is that?
+
+```
 
 Here are a few more probability density plots for the normal distribution with different means and standard deviations. We recommend that you try running the code line by line so that you understand exactly what happens every step of the way! 
 
@@ -186,7 +191,7 @@ test_that("Probability Calculation with PM:", {
 
 ### The Cumulative Distribution Function (CDF)
 
-The cumulative distribution function is an alternative way of describing the distribution. We will not go into a lot of details on how it can be used. Just briefly, it describes the cumulative probability of all values smaller than $x$. This is why it starts at 0 and goes up to 1, as the probability of all values smaller than $x$ grows with $x$. The slope corresponds to the spread. Lower standard deviations would correspond to more rapid growth in the CDF. 
+The cumulative distribution function is an alternative way of describing the distribution. We will not go into a lot of details on how it can be used. Just briefly, it describes the cumulative probability of all values smaller than $x$. This is why it starts at 0 and goes up to 1, as the probability of all values smaller than $x$ grows with $x$. The slope corresponds to the spread. **Lower standard deviations would correspond to more rapid growth in the CDF**. 
 
 Note that the values of CDF for the normal distribution can also be very easily generated in R using the `pnorm()` function. Similarly, this function exists for many other distributions: `punif()` for the uniform distribution, `pchisq()` for the chi-square distribution, and `pbinom()` for the binomial distribution.
 
