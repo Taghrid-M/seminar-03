@@ -285,8 +285,27 @@ function. Find the probability of getting a run of 4 heads out of 4 coin
 flips.
 
 ``` r
-# your code here 
-prob <- "FILL_THIS_IN"
+n <- 4
+p <- 0.5
+
+# probability of getting 4 heads in 4 tosses
+dbinom(4, size = n, prob = p)
+
+# create a grid of values 0 to 4 and calculate binomial PMF
+x <- seq(0,n)
+prob <- dbinom(x, size = n, prob = p)
+
+# place in a tibble
+densTable <- tibble(x = x, 
+                    prob = prob)
+
+# plot
+ggplot(densTable) +
+  geom_col(aes(x = x, y = prob)) +
+  xlab("x") +
+  ylab("Probability P(X=x)") +
+  scale_x_continuous(breaks = scales::pretty_breaks(11))
+
 ```
 
 This next code chunk will test whether you have correctly calculated
